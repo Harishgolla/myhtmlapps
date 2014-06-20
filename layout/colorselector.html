@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <style>
+        body {
+            background-color: yellow;
+            color: blue;
+        }
+        body > p, ul {
+            color: red;
+        }
+        .central > li {
+            color: green;
+        }
+        .central p, .central, ul .central li {
+            background-color: cyan;
+        }
+    </style>
+    <title></title>
+</head>
+<body>
+<p>
+    I'm a paragraph; what color am I - red?
+</p>
+<div class="central">
+    <p>
+        I'm another paragraph; what color am I? - bg cyan blue
+    </p>
+    <ul>
+        <li>I'm a list item; what color am I?- red bg cyan</li>
+    </ul>
+</div>
+</body>
+</html>

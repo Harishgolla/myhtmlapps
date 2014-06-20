@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html ng-app>
+<body>
+<div class="container">
+Name:<input type="text" ng-model="name"/> {{name}}
+</div>
+<style>
+
+</style>
+<script>
+
+</script>
+</body>
+</html>

@@ -1,0 +1,11 @@
+<!DOCTYPE html>
+<html ng-app>
+<body ng-init="names=['golla','harish','kumar']">
+<script src="angular.js"> </script>
+
+<ul >
+<li type="text" ng-model="name in names"/> {{name+"harish"}}
+</ul>
+
+</body>
+</html>

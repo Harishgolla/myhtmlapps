@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <div id="screens"></div>
+    <script src="handlebars-v1.3.0.js"></script>
+    <script id="sample" type="text/x-handlebars-template">
+
+        {{#each ab}}
+
+        {{log obj}}
+        {{#if sirname}}
+
+        <div>
+            {{{name}}}
+        </div>
+        {{/if}}
+        {{#if sirname}}
+        <div>
+            {{sirname}}
+
+        </div>
+        {{/if}}
+        {{/each}}
+
+
+        {{#with myname}}
+        <div>
+            {{{name}}}
+        </div>
+        <div>
+            {{sirname}}
+
+        </div>
+    {{/with}}
+    </script>
+</head>
+<body>
+<script>
+    var a = {};
+            a.ab  = [{name:"Stephen <p> no sirname</p>"},{name:"Stephen",sirname:"hudson"},{name:"stephen", sirname:"hakings"}];
+    var myname={name:"no", sirname:"sirname"};
+    var s = document.getElementById("sample").innerHTML;
+    var html = (Handlebars.compile(s))(a) ;
+
+    var iDiv = document.createElement('span');
+    iDiv.innerHTML =html;
+    document.getElementById("screens").appendChild(iDiv);
+</script>
+</body>
+</html>

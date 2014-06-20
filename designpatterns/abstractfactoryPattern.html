@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+    <head>
+    </head>
+
+    <body>
+
+    <script>
+
+    function car(options){
+        this.model = options.model;
+        this.price = options.price;
+    }
+    function bike(options){
+        this.model = options.model;
+        this.cc = options.cc;
+    }
+    var abstractvehicleFactory = {
+        types: [],
+        registervehicle:function(type, func){
+            abstractvehicleFactory.types[type] = func;
+
+        },
+        getvehicle : function(type, args){
+            return new abstractvehicleFactory.types[type](args);
+        }
+
+
+    }
+    abstractvehicleFactory.registervehicle("car",car);
+    var bmw = abstractvehicleFactory.getvehicle("car",{model:"BMW",price:"100K"});
+        console.log(bmw.model+"-"+bmw.price);
+    </script>
+    </body>
+</html>

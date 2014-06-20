@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+    <head>
+    </head>
+
+    <body>
+
+    <script>
+//Self executable function
+            var carManager = {
+                getModel : function(model,id){
+                    return "model"+model+"--id"+id;
+                }
+            }
+        carManager.execute = function(name){
+            console.log(carManager[name].apply(carManager, [].splice.call(arguments, 1)));
+        }
+
+        carManager.execute("getModel", "BMW", "X SERIES");
+
+    </script>
+    </body>
+</html>

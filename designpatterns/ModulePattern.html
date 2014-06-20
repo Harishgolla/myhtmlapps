@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+    <head>
+    </head>
+
+    <body>
+
+    <script>
+    var myObjectLiteral = {
+        objectLiteralString:"Thisisobjliteral",
+        objectLiteralObj: {
+            key:"objectkey",
+            value:"ThisrepresentObj"
+        },
+        returnObjectliteralObj :function(){
+            return this.objectLiteralObj;
+        },
+        setObjectLiteralObj : function(key, value){
+            this.objectLiteralObj.key = key;
+            this.objectLiteralObj.value = value;
+        },
+        setObjectLiteralObject : function (newObje){
+            this.objectLiteralObj.key = newObje.key;
+            this.objectLiteralObj.value = newObje.value;
+        }
+
+    }
+        console.log(myObjectLiteral.returnObjectliteralObj().key);
+        myObjectLiteral.setObjectLiteralObj("name", "stepen");
+    console.log(myObjectLiteral.returnObjectliteralObj().key + " --- " + myObjectLiteral.returnObjectliteralObj().value);
+    myObjectLiteral.setObjectLiteralObject({key:"name", value: "hudson"});
+    console.log(myObjectLiteral.returnObjectliteralObj().key + " --- " + myObjectLiteral.returnObjectliteralObj().value);
+
+    </script>
+    </body>
+</html>

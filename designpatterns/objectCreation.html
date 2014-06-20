@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+    <head>
+    </head>
+
+    <body>
+
+    <script>
+
+        var ob = new Object();
+        var ob1 = {};
+        var ob2 = Object.create(Object.prototype);
+        function defineProp(obj, key, value){
+            var config = { value: value};
+            Object.defineProperty(obj, key, config);
+
+        }
+
+        ob.hars = " harish";
+        ob1["name"] = "golla";
+        Object.defineProperty(ob2, "name", {value: "kumar"});
+        Object.defineProperties(ob1, {name: { value: "kumar"}, lastName:{value:"hari"}});
+        defineProp(ob,"lastname", "aris");
+    </script>
+    </body>
+</html>

@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+    <head>
+    </head>
+
+    <body>
+
+    <script>
+
+        var model = (function(){
+            var item = {
+                value : 10,
+                setItem:function(val){
+                    value = val;
+                    console.log("item set is "+ val);
+                },
+                getItem:function(){
+                    console.log("item set is "+ val);
+                }
+            }
+            return {facade:function(args){
+                item.setItem(args.value);
+                console.log(item.value);
+            } };
+
+
+        })();
+
+        model.facade({value:"20"});
+    </script>
+    </body>
+</html>

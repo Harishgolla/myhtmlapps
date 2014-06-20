@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html ng-app="myapp" >
+<head>
+<script src="angular.js"></script>
+    <div ng-controller="Simplecontroller">
+    <ul>
+        <li ng-repeat="a in data">
+            {{a.hi}}
+        </li>
+    </ul>
+
+        <ul>
+            <li ng-repeat="a in datafromservice">
+                {{a.hi}}
+            </li>
+        </ul>
+
+
+    </div>
+<script>
+    var module = angular.module("myapp",[]); //no dependent modules;
+    module.factory("factoryhi" , function(){ //factory
+        var a={};
+        a.gethis = function(){
+            return [{hi:"hihowareyou"}, {hi:"whoami"}];
+        }
+        return a;
+    });
+    module.service("hiservice", function(){
+        this.gethi = function(){
+            return [{hi:"hihowareyou"}, {hi:"whoami"}];
+        }
+    });
+//    setInterval(function(){
+//        module.service("hiservice", function(){
+//            this.gethi = function(){
+//                return [{hi:"hihowareyou goooo"}, {hi:"whoami - iam goo"}];
+//            }
+//        });
+//    }, 1000);
+    module.controller("Simplecontroller" , function($scope,factoryhi,hiservice){
+        //$scope.data = [{hi:"Hi How are you"},{hi:"Who am i "}];
+        $scope.data = factoryhi.gethis();
+        $scope.datafromservice = hiservice.gethi();
+    })
+
+</script>
+</head>
+<body>
+
+</body>
+</html>

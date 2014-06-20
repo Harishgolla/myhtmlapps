@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+    <head>
+    </head>
+
+    <body>
+
+    <script>
+    var mySelfContainedModule = (function() {
+        myPrivateVar = "stephen";
+        myPrivateFunc = function(){
+            return "hudson";
+        };
+        return {myPublicVar : "John ",
+            myPublicFunc : function() {
+                return myPrivateVar + myPrivateFunc();
+        }};
+
+    })();
+        console.log(mySelfContainedModule.myPublicVar);
+    console.log(mySelfContainedModule.myPublicFunc());
+
+    mySelfContainedModule.returnPrivateVarFail = function(){
+        console.log (myPrivateVar);
+    }
+    mySelfContainedModule.returnPrivateVarFail();
+//Improting mixins
+// var importJqeunderscore = (function(jQ, under){  myprivateVar = jQ.; })(jQuery, _);
+
+//Exporting object
+// var methodExport = (function (){ method = {}; method.publicVar = 19; method.publicFunc = function(){}; return method})();
+
+
+    </script>
+    </body>
+</html>

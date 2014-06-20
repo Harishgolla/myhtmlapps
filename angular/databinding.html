@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html ng-app>
+<body>
+
+<style>
+
+</style>
+<script>
+it = {"array":["banana","apple","orange"]};
+var out='';
+x =0;
+{
+	var arr1=it.array;
+	if(arr1){
+		var value,i=-1,l1=arr1.length-1;
+		while(i<l1){
+			value=arr1[i+=1];
+			if(i%3 == x){
+				out+='<div>'+(value)+'!</div>';
+				if(x++){}
+			}
+		}
+	}
+}
+alert(out);
+
+</script>
+</body>
+</html>

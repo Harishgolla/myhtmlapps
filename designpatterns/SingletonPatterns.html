@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+    <head>
+    </head>
+
+    <body>
+
+    <script>
+    var mySingletonModule = (function() {
+        var instance;
+
+        function init(){
+            var myPrivateVar = "stephen";
+            myPrivateFunc = function(){
+                return "hudson";
+            };
+            return {myPubicFunc : function(){ return myPrivateVar;}}
+
+        }
+        return {getInstance: function(){
+            if(!instance)
+                instance = init();
+            return instance;
+        }
+
+        };
+
+    })();
+
+    var myDirtySingletonModule = (function() {
+        var instance;
+
+        function init(){
+            var myPrivateVar = "stephen";
+            myPrivateFunc = function(){
+                return "hudson";
+            };
+            return {myPubicFunc : function(){ return myPrivateVar;}}
+
+        }
+        return {getInstance: function(){
+                instance = init();
+            return instance;
+        }
+
+        };
+
+    })();
+
+    console.log(mySingletonModule.getInstance().myPubicFunc());
+
+    var firstSingletonClass =mySingletonModule.getInstance();
+    var secondSingletonClass =mySingletonModule.getInstance();
+    if(firstSingletonClass === secondSingletonClass){
+        alert("Both refers to same object location");
+    }
+    var firstDirtySingletonClass =myDirtySingletonModule.getInstance();
+    var secondDirtySingletonClass =myDirtySingletonModule.getInstance();
+    if(firstDirtySingletonClass === secondDirtySingletonClass){
+        alert("Both refers to same object location");
+    }
+
+
+//Improting mixins
+// var importJqeunderscore = (function(jQ, under){  myprivateVar = jQ.; })(jQuery, _);
+
+//Exporting object
+// var methodExport = (function (){ method = {}; method.publicVar = 19; method.publicFunc = function(){}; return method})();
+
+
+    </script>
+    </body>
+</html>

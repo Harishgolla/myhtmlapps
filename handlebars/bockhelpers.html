@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <div id="screens"></div>
+    <script src="handlebars-v1.3.0.js"></script>
+
+    <script id="sample" type="text/x-handlebars-template">
+        <div>
+            {{#list a}}{{name}}{{/list}}
+            {{{name}}}
+
+        </div>
+
+    </script>
+</head>
+<body>
+<script>
+    var ab={};
+    ab.a =    [{name:"Stephen"},{name:"hudson"}];
+    Handlebars.registerHelper("list", function(items,options){
+        out = "<ul>";
+
+        for(i=0;i<items.length;i++){
+            out = out + "<li>" + options.fn(items[i])+ "</li>";
+        }
+        out+="</ul>";
+        return out;
+    });
+    var s = document.getElementById("sample").innerHTML;
+    var html = (Handlebars.compile(s))(ab) ;
+
+    var iDiv = document.createElement('span');
+    iDiv.innerHTML =html;
+    document.getElementById("screens").appendChild(iDiv);
+</script>
+</body>
+</html>

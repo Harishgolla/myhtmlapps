@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+    <head>
+    </head>
+
+    <body>
+
+    <script>
+
+    function car(options){
+        this.model = options.model;
+        this.price = options.price;
+    }
+    function bike(options){
+        this.model = options.model;
+        this.cc = options.cc;
+    }
+    function vehicleFactory(){};
+    vehicleFactory.prototype.createFactory = function(options){
+        if(options.type == "car")
+            this.class = car;
+        else
+            this.class = bike;
+        return new this.class(options);
+    }
+    var carfactory = vehicleFactory.prototype.createFactory({type:"car",model:"BENZ",price:"100k"});
+        console.log(carfactory.price +"--" +carfactory.model);
+
+    var bikefactory = vehicleFactory.prototype.createFactory({type:"bike",model:"yamaha",cc:"350"});
+    console.log(bikefactory instanceof bike);
+    console.log(bikefactory.cc +"--" +bikefactory.model);
+    </script>
+    </body>
+</html>

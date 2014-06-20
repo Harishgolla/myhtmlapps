@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+    <head>
+    </head>
+
+    <body>
+
+    <script>
+
+    var carObject ={
+        name: "Jaguear ",
+
+        getModel: function(){
+            return this.name;
+        }
+
+    }
+    var createPrototype = function(){
+        proto = {};
+        proto.prototype = carObject;
+        return proto;
+
+
+    }
+    //var myCarObject = {};
+    //myCarObject.prototype = carObject;
+    //myCarObject.prototype.setMode = function(name){
+    //    myCarObject.prototype.name = name;
+    //}
+    console.log(createPrototype().prototype.getModel());
+    //console.log(myCarObject.prototype.hasOwnProperty(name));
+    //myCarObject.prototype.setMode("BMW");
+    //console.log(myCarObject.prototype.getModel());
+    //console.log(carObject.getModel());
+    </script>
+    </body>
+</html>

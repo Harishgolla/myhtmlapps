@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html ng-app>
+<head>
+    <script src="angular.js">
+
+    </script>
+    <div ng-controller="simplecontroller">
+        <ul>
+            <li ng-repeat="a in payslip">
+                {{a.salary + a.Company}}
+            </li>
+
+        </ul>
+    </div>
+<script>
+    function simplecontroller($scope){
+        $scope.payslip = [
+            {salary:"100",Company:"LTD"},
+            {salary:"200", Company:"co"}
+        ];
+    }
+
+
+</script>
+
+</head>
+<body>
+
+</body>
+</html>

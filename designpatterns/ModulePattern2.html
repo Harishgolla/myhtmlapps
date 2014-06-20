@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+    <head>
+    </head>
+
+    <body>
+
+    <script>
+    var mySelfContainedReavilingModule = (function() {
+        var myPrivateVar = "stephen";
+        myPrivateFunc = function(){
+            return "hudson";
+        };
+        return {myReavilingPriv: myPrivateVar,
+            myReavlingPrivFunc : myPrivateFunc
+        };
+
+    })();
+        console.log(mySelfContainedReavilingModule.myReavilingPriv);
+    console.log(mySelfContainedReavilingModule.myReavlingPrivFunc());
+
+//Improting mixins
+// var importJqeunderscore = (function(jQ, under){  myprivateVar = jQ.; })(jQuery, _);
+
+//Exporting object
+// var methodExport = (function (){ method = {}; method.publicVar = 19; method.publicFunc = function(){}; return method})();
+
+
+    </script>
+    </body>
+</html>

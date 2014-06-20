@@ -1,0 +1,12 @@
+<!DOCTYPE html>
+<html ng-app>
+<body ng-init="names=[{name:'golla',nametype:'sirname'},{name:'harish',nametype:'firstname'},{name:'kumar',nametype:'secondname'}]">
+<script src="angular.js"> </script>
+<div>
+Name <input type="text" ng-model="name">{{name}}
+<ul >
+<li type="text" ng-repeat="a in names | filter:name" "/> {{a.name+"- " + a.nametype | uppercase}}
+</ul>
+
+</body>
+</html>

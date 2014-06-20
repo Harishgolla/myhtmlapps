@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <button id="addNewObserver">Add New Observer checkbox</button>
+        <input id="mainCheckbox" type="checkbox"/>
+        <div id="observersContainer"></div>
+        <script src="observerList.js "></script>
+        <script src="Subject.js "></script>
+    </head>
+
+    <body>
+
+    <script>
+        function addObserver(){
+
+            // Create a new checkbox to be added
+            var check  = document.createElement( "input" );
+            check.type = "checkbox";
+
+            // Extend the checkbox with the Observer class
+            extend( new Observer(), check );
+
+            // Override with custom update behaviour
+            check.update = function( value ){
+                this.checked = value;
+            };
+
+            // Add the new observer to our list of observers
+            // for our main subject
+            controlBox.addObserver( check );
+
+            // Append the item to t he container
+            container.appendChild( check );
+        }
+        function extend(extension , obj){
+            for (i in extension){
+                obj [i] = extension[i];
+            }
+
+        }
+
+        var controlBox  = document.getElementById("mainCheckbox");
+        var addBtn  = document.getElementById("addNewObserver");
+        var container  = document.getElementById("observersContainer");
+        extend(new Subject(), controlBox);
+
+        addBtn.onclick = function(){
+
+            addObserver();
+        };
+        controlBox.onclick = function(){
+            controlBox.notify( controlBox.checked );
+        };
+    </script>
+    </body>
+</html>

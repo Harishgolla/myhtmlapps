@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+<head>
+<script src ="jquery.js"></script>
+    <script src ="underscore.js"></script>
+    <script src ="backbone.js"></script>
+
+    <script>
+        var payslip = Backbone.Model.extend({
+            defaults:{
+              Company:"PVT LTD",
+              Name:"XXXXX",
+              Salary : "XXXXX$",
+              Others : []
+            },
+            initialize:function(){
+
+            },
+            validate: function(obj){
+                if(obj.Salary <0)
+                    return "No on can have negative salary";
+            },
+            bindAttr:function(attribute){
+                this.bind("change:"+attribute , function(e){
+                   alert("changed attribute" + this.get(attribute) );
+                });
+            },
+            addOthers:function(otherincentives){
+                var a = this.get("Others");
+                a.push(otherincentives);
+                this.set({"Others":a});
+            }
+
+        })
+
+        var mymodel = new payslip();
+        alert(mymodel.get("Salary"));
+        alert(JSON.stringify(mymodel.toJSON()));
+        mymodel.bindAttr("Salary");
+        mymodel.set({"Salary":"1000$"});
+        alert(mymodel.get("Salary"));
+
+        mymodel.addOthers("MEDICAL");
+        alert(mymodel.get("Others"));
+        mymodel.addOthers("CAR");
+        alert(mymodel.get("Others"));
+
+        var collectionofpayslips = Backbone.Collection.extend({
+           model:payslip
+        });
+
+        var mymodel2 = new payslip({Company:"AMAZON",
+            Name:"Stephen",
+            Salary : "100$",
+            Others : ["DA"]
+        });
+
+        var collectionofps = new collectionofpayslips([mymodel, mymodel2]);
+        alert(JSON.stringify(collectionofps.toJSON()));
+
+        delete  mymodel;
+        alert(JSON.stringify(collectionofps.toJSON()));
+        alert(JSON.stringify(mymodel.toJSON()));
+
+    </script>
+</head>
+<body>
+
+</body>
+</html>

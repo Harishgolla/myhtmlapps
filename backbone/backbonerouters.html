@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+<script src="jquery.js"></script>
+    <script src="underscore.js"></script>
+    <script src="backbone.js"></script>
+<script>
+    var approuter = Backbone.Router.extend({
+        routes:{
+            "/post/:id":"getpos",
+            "*actions":"defaultRoute",
+            "paths/*a":"fullroutepath",
+            "/:a/:b":"aandbis"
+        },
+        fullroutepath:function(a){
+          alert("remaining path after paths in URL is -"+a);
+        },
+        aandbis:function(){
+          alert("the variables in URL path is " +a+b);
+        },
+        getpost :function(id){
+            alert("please route to this post id" + id);
+        },
+
+        defaultRoute:function(action){
+            alert(action);
+        }
+    });
+    var router = new approuter();
+    Backbone.history.start();
+
+</script>
+</head>
+<body>
+
+</body>
+</html>

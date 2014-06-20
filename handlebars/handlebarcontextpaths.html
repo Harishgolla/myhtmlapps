@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <div id="screens"></div>
+    <script src="handlebars-v1.3.0.js"></script>
+    <script id="sample" type="text/x-handlebars-template">
+        <div>
+            {{{this.name}}}
+
+        </div>
+        <div>
+            {{this/sirname}}
+
+        </div>
+    </script>
+</head>
+<body>
+<script>
+    var a  = {name:"Stephen " , sirname:"hudson"};
+    var s = document.getElementById("sample").innerHTML;
+    var html = (Handlebars.compile(s))(a) ;
+
+    var iDiv = document.createElement('span');
+    iDiv.innerHTML =html;
+    document.getElementById("screens").appendChild(iDiv);
+</script>
+</body>
+</html>
